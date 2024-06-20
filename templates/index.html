@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجدول الدراسي</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">{{ h1_content }}</h1>
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>اليوم</th>
+                        <th>الحصة 1</th>
+                        <th>الحصة 2</th>
+                        <th>الحصة 3</th>
+                        <th>الحصة 4</th>
+                        <th>الحصة 5</th>
+                        <th>الحصة 6</th>
+                        <th>الحصة 7</th>
+                        <th>الحصة 8</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for day, classes in days.items() %}
+                    <tr>
+                        <td>{{ day }}</td>
+                        {% for class, link in classes %}
+                        <td><a href="{{ link }}">{{ class }}</a></td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

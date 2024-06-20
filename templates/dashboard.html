@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الجدول الدراسي</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">إدارة الجدول الدراسي</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="h1_content">عنوان الجدول الدراسي</label>
+                <input type="text" id="h1_content" name="h1_content" class="form-control" value="{{ h1_content }}">
+            </div>
+            <div class="form-group">
+                <label for="day">اليوم</label>
+                <select id="day" name="day" class="form-control">
+                    <option value="الأحد">الأحد</option>
+                    <option value="الإثنين">الإثنين</option>
+                    <option value="الثلاثاء">الثلاثاء</option>
+                    <option value="الأربعاء">الأربعاء</option>
+                    <option value="الخميس">الخميس</option>
+                </select>
+            </div>
+            {% for i in range(1, 9) %}
+            <div class="form-group">
+                <label for="class{{ i }}">الحصة {{ i }}</label>
+                <input type="text" id="class{{ i }}" name="class{{ i }}" class="form-control">
+                <label for="link{{ i }}">الرابط {{ i }}</label>
+                <input type="text" id="link{{ i }}" name="link{{ i }}" class="form-control">
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">حفظ</button>
+        </form>
+    </div>
+</body>
+</html>
