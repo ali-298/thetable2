@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header style="text-align: center; padding: 20px;">
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" style="max-width: 200px; border-radius: 50%;
+        width: 150px; /* Adjust the size as needed */
+        height: 150px; /* Adjust the size as needed */
+        object-fit: cover">
+    </header>
     <div class="container mt-5">
         <h1 class="text-center">{{ h1_content }}</h1>
         <div class="table-responsive mt-4">
@@ -37,6 +43,8 @@
                     {% endfor %}
                 </tbody>
             </table>
+            <br>
+            <h3 class="text-center">أ.سلطان الوائلي</h3>
         </div>
     </div>
 </body>
